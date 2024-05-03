@@ -1,10 +1,10 @@
 const sql = require("mssql");
 
 const config = {
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  server: process.env.DB_HOST, // Sunucu adı veya IP adresi
-  database: process.env.DB_DATABASE,
+  user: env.DB_USER,
+  password: env.DB_PASSWORD,
+  server: env.DB_HOST, // Sunucu adı veya IP adresi
+  database: env.DB_DATABASE,
   options: {
     trustServerCertificate: true,
   },
