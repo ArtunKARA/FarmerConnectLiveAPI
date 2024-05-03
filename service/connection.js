@@ -1,10 +1,10 @@
 const sql = require("mssql");
 
 const config = {
-  user: env.DB_USER,
-  password: env.DB_PASSWORD,
-  server: env.DB_HOST, // Sunucu adı veya IP adresi
-  database: env.DB_DATABASE,
+  user: rootfarmer,
+  password: Farmer12345,
+  server: farmerconnect.database.windows.net, // Sunucu adı veya IP adresi
+  database: farmerconnect,
   options: {
     trustServerCertificate: true,
   },
