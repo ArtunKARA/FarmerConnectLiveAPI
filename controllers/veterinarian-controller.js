@@ -29,7 +29,7 @@ exports.getFarmerVeterinarianData = async (req, res) => {
 
 exports.getVeterinarianVeterinarianData = async (req, res) => {
     const mail = req.params.mail;
-    q = `SELECT fr.ID, fr.status, fr.requestDate, fr.diagnosis, fr.situation
+    q = `SELECT fr.ID, fr.status, fr.requestDate, fr.diagnosis, fr.situation, u.farmAdres
     FROM veterinarianRequests fr
     JOIN Users u ON fr.requestResponsible = u.ID
     WHERE u.mail = '`+mail+`';`;
