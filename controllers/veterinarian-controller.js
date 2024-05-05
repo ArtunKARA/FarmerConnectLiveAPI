@@ -37,6 +37,20 @@ exports.getVeterinarianDataDetails = async (req, res) => {
 
 exports.setFarmerVeterinarianRequest = async (req, res) => {
 
+  const { mail, situation } = req.body;
+  q = `INSERT INTO veterinarianRequests (userID, status, situation, requestDate)
+  SELECT Users.ID, 'a', '`+situation+`', GETDATE()
+  FROM Users
+  WHERE mail = '`+mail+`';`;
+  try {
+    const pool = await poolPromise;
+    const result = await pool.request().query(q);
+    return res.json({ message: "Request created successfully" });
+  } catch (error) {
+    console.error('Request could not be created:', error);
+    return res.status(500).json({ error: 'Internal server error' });
+  }
+
 };
 
 exports.setVeterinarianRequestAproved = async (req, res) => {
